@@ -20,4 +20,17 @@ class UserController extends Controller
             'users' => $users
         ], Response::HTTP_OK);
     }
+
+    public function show(User $user){
+        return response()->json([
+            'user' => $user
+        ], Response::HTTP_OK);
+    }
+
+    public function me(){
+        $userLogged = Auth::user();
+        return response()->json([
+            'user' => $userLogged
+        ], Response::HTTP_OK);
+    }
 }

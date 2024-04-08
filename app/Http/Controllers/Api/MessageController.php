@@ -40,4 +40,12 @@ class MessageController extends Controller
             'messages' => $messages
         ], Response::HTTP_OK);
     }
+
+    public function store(Request $request){
+        $data = [
+            'from' => Auth::user()->id,
+        ];
+
+        Message::create(array_merge($request->all(), $data));
+    }
 }
