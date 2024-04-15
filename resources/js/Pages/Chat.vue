@@ -67,6 +67,10 @@ components: {
             axios.get('api/users').then(response => {
                 this.users = response.data.users
         })
+
+        Echo.private(`user.${this.user.id}`).listen('.SendMessage', (e) => {
+            console.log(e)
+        })
     },
 
     computed: {

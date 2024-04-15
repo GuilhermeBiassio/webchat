@@ -19,6 +19,7 @@
         "vue": "^3.3.13"
     },
     "dependencies": {
+        "latest-version": "^9.0.0",
         "moment": "^2.30.1",
         "vuex": "^4.1.0",
         "vuex-persistedstate": "^4.1.0"
