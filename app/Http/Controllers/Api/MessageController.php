@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Message;
 use App\Http\Controllers\Controller;
+use App\Events\Chat\SendMessage;
 
 class MessageController extends Controller
 {
@@ -47,5 +48,6 @@ class MessageController extends Controller
         ];
 
         Message::create(array_merge($request->all(), $data));
+        SendMessage::dispatch($request->message, Auth::user()->id);
     }
 }
